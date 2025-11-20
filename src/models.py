@@ -8,7 +8,6 @@ db = SQLAlchemy()
 
 class User(db.Model):
     __tablename__ = "user"
-
     id: Mapped[int] = mapped_column(primary_key=True)
     user_name: Mapped[str] = mapped_column(String(120), unique=True,  nullable=False)
     first_name: Mapped[str] = mapped_column(String(120), nullable=False)
@@ -30,7 +29,6 @@ class User(db.Model):
 
 class Planets(db.Model):
     __tablename__ = "planets"
-
     id: Mapped[int] = mapped_column(primary_key=True)
     weather: Mapped[int] = mapped_column(String(120), nullable=False)
     diameter: Mapped[str] = mapped_column(String(120), nullable=False)
@@ -40,7 +38,6 @@ class Planets(db.Model):
 
 class Characters(db.Model):
     __tablename__ = "characters"
-
     id: Mapped[int] = mapped_column(primary_key=True)
     gender:  Mapped[str] = mapped_column(String(120), nullable=False)
     eyes_color: Mapped[str] = mapped_column(String(120), nullable=False)
@@ -51,7 +48,6 @@ class Characters(db.Model):
 
 class Starships(db.Model):
     __tablename__ = "starships"
-
     id: Mapped[int] = mapped_column(primary_key=True)
     owner: Mapped[str] = mapped_column(String(120), nullable=False)
     name: Mapped[str] = mapped_column(String(120), nullable=False)
@@ -60,7 +56,6 @@ class Starships(db.Model):
 
 class Favorites(db.Model):
     __tablename__ = "favorites"
-
     id: Mapped[int] = mapped_column(primary_key=True)
     user_id: Mapped[int] = mapped_column(ForeignKey("user.id"), nullable=True)
     characters_id: Mapped[int] = mapped_column(ForeignKey("characters.id"), nullable=True)
